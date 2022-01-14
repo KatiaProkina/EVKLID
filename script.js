@@ -36,4 +36,24 @@ const swiper = new Swiper('.swiper-container', {
      });
       
    } );
-    
+
+   document.querySelector('#burger').addEventListener('click', function(){
+     document.querySelector('#menu').classList.toggle('is-active')
+   })
+   document.querySelector(".nav__close").addEventListener("click", function() {
+    document.querySelector('#menu').classList.remove('is-active');
+  })
+  document.querySelector(".form-btn__open").addEventListener("click", function() {
+    document.querySelector(".header-form").classList.add("form__active");
+    this.classList.add("active");
+  })
+  
+  document.addEventListener("click", function(e) {
+    let target = e.target;
+    let form = document.querySelector(".header-form");
+    if (!target.closest(".form-container")) {
+    form.classList.remove("form__active");
+      form.querySelector(".form__input").value = "";
+      document.querySelector(".form-btn__open").classList.remove("active")
+    }
+  })
